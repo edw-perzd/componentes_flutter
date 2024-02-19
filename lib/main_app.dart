@@ -6,9 +6,18 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(), 
-    );
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: const HomeScreen(),
+        theme: ThemeData(
+            scaffoldBackgroundColor: const Color.fromARGB(255, 93, 165, 252),
+            appBarTheme:
+                const AppBarTheme(color: Color.fromARGB(255, 117, 11, 146)),
+            textTheme: const TextTheme(
+                headlineLarge: TextStyle(
+                    color: Color.fromARGB(255, 117, 11, 146),
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'sans-serif'))));
   }
 }

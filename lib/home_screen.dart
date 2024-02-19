@@ -6,60 +6,40 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Componentes de flutter')
-        ),
+        appBar: AppBar(title: const Text('Componentes de flutter')),
         body: ListView(
-          children: const [
+          children: [
             ListTile(
-              leading: Icon(Icons.heart_broken),
-              title: Text('Angel Eduardo', 
-                style: TextStyle(
-                  color: Colors.blueAccent,
-                  fontWeight: FontWeight.bold
-                ),
+              leading: const Icon(Icons.input),
+              title: Text(
+                'Entradas',
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
-              subtitle: Text("14/02/2024 - Software Engineer Level 5",
-                style: TextStyle(
-                  color: Colors.grey
-                ),
-              ),
-              trailing: Icon(Icons.military_tech_outlined),
+              subtitle:
+                  const Text("Diferentes widgets para entradas de flutter"),
+              trailing: const Icon(Icons.military_tech_outlined),
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              leading: Icon(Icons.ac_unit),
-              title: Text('Yahir Duran',
-                style: TextStyle(
-                  color: Colors.pinkAccent,
-                  fontWeight: FontWeight.bold
-                ),
+              leading: const Icon(Icons.list_alt_rounded),
+              title: Text(
+                'ListView.builder',
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
-              subtitle: Text("13/02/2024 - Software Engineer Level 6",
-                style: TextStyle(
-                  color: Colors.grey
-                ),
-              ),
-              trailing: Icon(Icons.error),
+              subtitle: const Text("Scroll infinito"),
+              trailing: const Icon(Icons.error),
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              leading: Icon(Icons.accessibility_new),
-              title: Text('Carlos Alberto',
-                style: TextStyle(
-                  color: Colors.greenAccent,
-                  fontWeight: FontWeight.bold
-                ),
+              leading: const Icon(Icons.notification_add),
+              title: Text(
+                'Notificaciones',
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
-              subtitle: Text("12/02/2024 - Software Engineer Level 4",
-                style: TextStyle(
-                  color: Colors.grey
-                ),
-              ),
-              trailing: Icon(Icons.check),
+              subtitle: const Text("Creación de notificaciones"),
+              trailing: const Icon(Icons.check),
             ),
           ],
-          )
-      );
+        ));
   }
 }
