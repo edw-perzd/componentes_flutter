@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_componentes/themes/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,34 +11,41 @@ class HomeScreen extends StatelessWidget {
         body: ListView(
           children: [
             ListTile(
-              leading: const Icon(Icons.input),
+              leading: const Icon(Icons.input, color: AppTheme.mainColor),
               title: Text(
                 'Entradas',
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
-              subtitle:
-                  const Text("Diferentes widgets para entradas de flutter"),
-              trailing: const Icon(Icons.military_tech_outlined),
+              subtitle: Text(
+                "Diferentes widgets para entradas de flutter",
+                style: AppTheme.lightTheme.textTheme.bodySmall,
+              ),
+              trailing: const Icon(Icons.military_tech_outlined,
+                  color: AppTheme.mainColor),
             ),
             const Divider(),
             ListTile(
-              leading: const Icon(Icons.list_alt_rounded),
+              leading:
+                  const Icon(Icons.list_alt_rounded, color: AppTheme.mainColor),
               title: Text(
                 'ListView.builder',
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
-              subtitle: const Text("Scroll infinito"),
-              trailing: const Icon(Icons.error),
+              subtitle: Text("Scroll infinito",
+                  style: Theme.of(context).textTheme.bodySmall),
+              trailing: const Icon(Icons.error, color: AppTheme.mainColor),
             ),
             const Divider(),
             ListTile(
-              leading: const Icon(Icons.notification_add),
+              leading:
+                  const Icon(Icons.notification_add, color: AppTheme.mainColor),
               title: Text(
                 'Notificaciones',
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
-              subtitle: const Text("Creación de notificaciones"),
-              trailing: const Icon(Icons.check),
+              subtitle: Text("Creación de notificaciones",
+                  style: Theme.of(context).textTheme.bodySmall),
+              trailing: const Icon(Icons.check, color: AppTheme.mainColor),
             ),
           ],
         ));
