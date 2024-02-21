@@ -9,7 +9,7 @@ class AppTheme {
       scaffoldBackgroundColor: backColor,
       appBarTheme: const AppBarTheme(color: mainColor),
       textTheme: TextTheme(
-          headlineLarge: GoogleFonts.openSans(
+          headlineLarge: GoogleFonts.montserrat(
               color: mainColor,
               fontSize: 25.0,
               fontWeight: FontWeight.bold,
