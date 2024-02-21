@@ -16,8 +16,9 @@ class AppTheme {
               // decoration: TextDecoration.underline,
               // decorationColor: Colors.red,
               // decorationStyle: TextDecorationStyle.wavy,
-              decorationThickness: 3.0,
-              fontStyle: FontStyle.italic),
-          bodySmall: GoogleFonts.openSans(
-              color: subtitleColor, fontStyle: FontStyle.italic)));
+              decorationThickness: 3.0),
+          bodySmall: GoogleFonts.montserrat(
+            color: subtitleColor,
+            fontStyle: FontStyle.italic,
+          )));
 }
