@@ -33,6 +33,11 @@ class AppTheme {
               // decorationColor: Colors.red,
               // decorationStyle: TextDecorationStyle.wavy,
               decorationThickness: 3.0),
+          headlineMedium: GoogleFonts.acme(
+              color: Colors.black,
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold,
+              decorationThickness: 3.0),
           bodySmall: GoogleFonts.montserrat(
             color: subtitleColor,
             fontStyle: FontStyle.italic,
