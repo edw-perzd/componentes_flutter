@@ -39,7 +39,13 @@ class AppTheme {
               fontWeight: FontWeight.bold,
               decorationThickness: 3.0),
           bodySmall: GoogleFonts.montserrat(
-            color: subtitleColor,
+              color: subtitleColor,
+              fontStyle: FontStyle.italic,
+              decorationThickness: 3.0),
+          /* */
+          bodyMedium: GoogleFonts.montserrat(
+            color: backColor,
             fontStyle: FontStyle.italic,
+            /* */
           )));
 }
