@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_componentes/screens/images_screen.dart';
 import 'package:practica3_componentes/screens/infinite_list_screen.dart';
 import 'package:practica3_componentes/screens/inputs_screen.dart';
 import 'package:practica3_componentes/screens/notifications_screen.dart';
@@ -78,6 +79,23 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(context, ruta3);
               },
             ),
+            const Divider(),
+            ListTile(
+              leading: IconTheme(
+                data: AppTheme.lightTheme.iconTheme,
+                child: const Icon(Icons.image),
+              ),
+              title: Text(
+                'Imágenes',
+                style: AppTheme.lightTheme.textTheme.headlineLarge,
+              ),
+              onTap: () {
+                final ruta4 = MaterialPageRoute(builder: (context) {
+                  return const ImagesScreen();
+                });
+                Navigator.push(context, ruta4);
+              },
+            )
           ],
         ));
   }
