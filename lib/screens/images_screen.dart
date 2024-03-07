@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practica3_componentes/themes/app_theme.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class ImagesScreen extends StatefulWidget {
   const ImagesScreen({super.key});
@@ -46,10 +47,22 @@ class _ImagesScreenState extends State<ImagesScreen> {
     );
   }
 
-  Widget imageWeb() {
-    return Center(
-      child: Image.network(
-          'https://media.istockphoto.com/id/1127302688/es/vector/icono-de-pato-amarillo.jpg?s=612x612&w=0&k=20&c=qbHH2q0eR_8H_XFFAn-NJi5WINYtcN2OrruQ1KCG0W4='),
-    );
+  Stack imageWeb() {
+    return Stack(children: <Widget>[
+      const Center(
+        child: CircularProgressIndicator(),
+      ),
+      Center(
+        child: SizedBox(
+            height: 450,
+            width: 450,
+            child: FadeInImage.memoryNetwork(
+                placeholder: kTransparentImage,
+                image:
+                    'https://media.istockphoto.com/id/1127302688/es/vector/icono-de-pato-amarillo.jpg?s=612x612&w=0&k=20&c=qbHH2q0eR_8H_XFFAn-NJi5WINYtcN2OrruQ1KCG0W4='
+                // Image.network(src) = Trate imagen de la red
+                )),
+      ),
+    ]);
   }
 }
