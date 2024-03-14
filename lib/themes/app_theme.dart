@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const mainColor = Color.fromARGB(255, 4, 104, 225);
   static const backColor = Colors.white;
-  static const subtitleColor = Colors.blueGrey;
+  static const subtitleColor = Colors.grey;
+  static const unselected = Colors.black;
   static final ThemeData lightTheme = ThemeData.light().copyWith(
       scaffoldBackgroundColor: backColor,
       appBarTheme: AppBarTheme(
@@ -33,9 +35,9 @@ class AppTheme {
               // decorationColor: Colors.red,
               // decorationStyle: TextDecorationStyle.wavy,
               decorationThickness: 3.0),
-          headlineMedium: GoogleFonts.acme(
-              color: Colors.black,
-              fontSize: 25.0,
+          headlineMedium: GoogleFonts.montserrat(
+              color: mainColor,
+              fontSize: 20.0,
               fontWeight: FontWeight.bold,
               decorationThickness: 3.0),
           bodySmall: GoogleFonts.montserrat(
@@ -47,5 +49,7 @@ class AppTheme {
             color: backColor,
             fontStyle: FontStyle.italic,
             /* */
-          )));
+          ),
+          bodyLarge: GoogleFonts.montserrat(
+              color: unselected, fontSize: 18.0, fontWeight: FontWeight.bold)));
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:practica3_componentes/screens/data_screen.dart';
 import 'package:practica3_componentes/screens/home_screen.dart';
 import 'package:practica3_componentes/screens/images_screen.dart';
 import 'package:practica3_componentes/screens/infinite_list_screen.dart';
@@ -18,7 +20,7 @@ class _InputScreenState extends State<InputScreen> {
   bool isChecked2 = false;
   bool isChecked3 = false;
   double valueSlider = 0.0;
-  int selectedIndex = 0;
+  int selectedIndex = 2;
   int selectedRadioOption = 0; // Para los RadioButton
 
   openScreen(int index) {
@@ -34,11 +36,17 @@ class _InputScreenState extends State<InputScreen> {
               builder: (context) => const InfiniteListScreen());
           break;
         case 2:
+          ruta = MaterialPageRoute(builder: (context) => const InputScreen());
+          break;
+        case 3:
           ruta = MaterialPageRoute(
               builder: (context) => const NotificationScreen());
           break;
-        case 3:
+        case 4:
           ruta = MaterialPageRoute(builder: (context) => const ImagesScreen());
+          break;
+        case 5:
+          SystemChannels.platform.invokeListMethod('SystemNavigator.pop');
           break;
       }
       selectedIndex = index;
@@ -53,54 +61,68 @@ class _InputScreenState extends State<InputScreen> {
       appBar: AppBar(title: const Text('Entradas')),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: ListView(
           children: [
-            entradaTexto(),
-            entradaSwitch(),
-            entradaSlider(),
+            SizedBox(height: 50, child: entradaTexto()),
+            SizedBox(height: 100, child: entradaSwitch()),
+            SizedBox(height: 100, child: entradaSlider()),
             entradasRadio(),
             Text(
               '¿Qué usas para correr tus apps de Flutter?',
-              style: AppTheme.lightTheme.textTheme.headlineLarge,
+              style: AppTheme.lightTheme.textTheme.headlineMedium,
             ),
             entradasCheck(),
-            const ElevatedButton(onPressed: null, child: Text('Guardar'))
+            ElevatedButton(
+                onPressed: () {
+                  final rutaDataScreen = MaterialPageRoute(builder: (context) {
+                    return const DataScreen();
+                  });
+                  Navigator.push(context, rutaDataScreen);
+                },
+                child: const Text('Guardar'))
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedIndex,
-          backgroundColor: AppTheme.mainColor,
+          // backgroundColor: AppTheme.mainColor,
           unselectedItemColor: AppTheme.backColor,
-          selectedItemColor: AppTheme.subtitleColor,
+          selectedItemColor: AppTheme.backColor,
           onTap: (index) => openScreen(index),
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home_filled,
-                  color: Colors.red,
-                ),
+                icon: Icon(Icons.home_filled, color: AppTheme.backColor),
+                backgroundColor: AppTheme.mainColor,
                 label: "Inicio"),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.list_alt,
                 ),
+                backgroundColor: AppTheme.mainColor,
                 label: "Lista"),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.input,
+                ),
+                backgroundColor: AppTheme.mainColor,
+                label: "Entradas"),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.notifications,
                 ),
+                backgroundColor: AppTheme.mainColor,
                 label: "Notificaciones"),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.image,
                 ),
+                backgroundColor: AppTheme.mainColor,
                 label: "Imágenes"),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.exit_to_app,
                 ),
+                backgroundColor: AppTheme.mainColor,
                 label: "Salir"),
           ],
           unselectedLabelStyle: AppTheme.lightTheme.textTheme.bodyMedium),
@@ -112,7 +134,7 @@ class _InputScreenState extends State<InputScreen> {
       decoration: InputDecoration(
           border: const UnderlineInputBorder(),
           labelText: 'Escribe tu nombre',
-          labelStyle: AppTheme.lightTheme.textTheme.headlineLarge),
+          labelStyle: AppTheme.lightTheme.textTheme.headlineMedium),
     );
   }
 
@@ -122,7 +144,7 @@ class _InputScreenState extends State<InputScreen> {
         const FlutterLogo(),
         Text(
           '¿Te gusta Flutter?',
-          style: AppTheme.lightTheme.textTheme.headlineLarge,
+          style: AppTheme.lightTheme.textTheme.headlineMedium,
         ),
         const SizedBox(
           width: 25,
@@ -143,7 +165,7 @@ class _InputScreenState extends State<InputScreen> {
       children: <Widget>[
         Text(
           '¿Qué tanto te gusta Flutter?',
-          style: AppTheme.lightTheme.textTheme.headlineLarge,
+          style: AppTheme.lightTheme.textTheme.headlineMedium,
         ),
         Slider(
           min: 0.0,
@@ -170,7 +192,7 @@ class _InputScreenState extends State<InputScreen> {
       children: [
         Text(
           '¿Qué prefieres usar para el desarrollo móvil',
-          style: AppTheme.lightTheme.textTheme.headlineLarge,
+          style: AppTheme.lightTheme.textTheme.headlineMedium,
         ),
         ListTile(
           title: Text(
@@ -178,7 +200,7 @@ class _InputScreenState extends State<InputScreen> {
             style: AppTheme.lightTheme.textTheme.bodySmall,
           ),
           leading: Transform.scale(
-            scale: 1.5,
+            scale: 1.3,
             child: Radio(
               value: 1,
               groupValue: selectedRadioOption,
@@ -197,7 +219,7 @@ class _InputScreenState extends State<InputScreen> {
             style: AppTheme.lightTheme.textTheme.bodySmall,
           ),
           leading: Transform.scale(
-            scale: 1.5,
+            scale: 1.3,
             child: Radio(
               value: 2,
               groupValue: selectedRadioOption,
